@@ -96,7 +96,14 @@ fi
 
 if [ "$ID" == "ubuntu" ]; then
 
+    echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
 	apt install bc -y
+    sudo dpkg --add-architecture i386
+    sudo apt-get update
+    sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
+    sudo apt -y install libreadline5
+    sudo apt -y install libncursesw5
+    sudo apt -y install lib32ncursesw5
 	
 	if [ $(echo "$VERSION_ID == 20.04 || $VERSION_ID == 18.04 || $VERSION_ID == 16.04" | bc -l) != 1 ]; then
 		echo "Your Ubuntu $VERSION_ID version not supported yet"
@@ -152,8 +159,6 @@ if [ "$ID" == "ubuntu" ]; then
 	fi
 
 	sed -i "s/^bind-address.*/bind-address=0.0.0.0/g" "/etc/mysql/mariadb.conf.d/50-server.cnf"
-
-	sudo mysql_secure_installation
 
 	install_debian_ubuntu
 	
