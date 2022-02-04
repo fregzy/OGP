@@ -24,7 +24,7 @@ Script supports auto install agent or panel for any os supported
 
 ### Agent Installation 
 	
-    sudo apt update && apt -y upgrade && apt -y install curl && curl -O https://raw.githubusercontent.com/fregzy/OGP/master/panel.sh && chmod 777 panel.sh && ./agent.sh
+    sudo apt update && apt -y upgrade && apt -y install curl && curl -O https://raw.githubusercontent.com/fregzy/OGP/master/agent.sh && chmod 777 agent.sh && ./agent.sh
 
 ### VPS Hosting
 https://www.host1fire.com/
