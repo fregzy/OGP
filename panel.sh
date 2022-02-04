@@ -17,7 +17,6 @@ update_system(){
     echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
     sudo apt -y update
     sudo apt -y upgrade
-
 }
 
 install_debian_ubuntu(){
@@ -31,6 +30,12 @@ install_debian_ubuntu(){
 if [ "$ID" == "debian" ]; then
     echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
 	apt install bc -y
+    sudo dpkg --add-architecture i386
+    sudo apt-get update
+    sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
+    sudo apt -y install libreadline5
+    sudo apt -y install libncursesw5
+    sudo apt -y install lib32ncursesw5
 
 	if [ $(echo "$VERSION_ID == 10 || $VERSION_ID == 9 || $VERSION_ID == 8" | bc -l) != 1 ]; then
 		echo "Your Debian $VERSION_ID version not supported yet"
@@ -43,10 +48,8 @@ if [ "$ID" == "debian" ]; then
 		sleep 5
 
 		update_system
-		echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
-        sudo apt -y install apache2 mariadb-server
-        sudo mysql_secure_installation
-        sudo apt -y curl subversion php7.2 php7.2-gd php7.2-zip ibapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear php7.2-mbstring php-gettext git php-bcmath phpmyadmin	
+		sudo apt-get -y install apache2 curl subversion php7.3 php7.3-gd php7.3-zip libapache2-mod-php7.3 php7.3-curl php7.3-mysql php7.3-xmlrpc php-pear mariadb-server php7.3-mbstring php-gettext git php-bcmath
+		sudo apt-get -y install phpmyadmin
 
 	fi
 
@@ -56,10 +59,9 @@ if [ "$ID" == "debian" ]; then
 		sleep 5
 
 		update_system
-		echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
         sudo apt -y install apache2 mariadb-server
         sudo mysql_secure_installation
-        sudo apt -y curl subversion php7.2 php7.2-gd php7.2-zip ibapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear php7.2-mbstring php-gettext git php-bcmath phpmyadmin
+        sudo apt -y install curl subversion php7.2 php7.2-gd php7.2-zip ibapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear php7.2-mbstring php-gettext git php-bcmath phpmyadmin
 		
 	fi
 
@@ -69,10 +71,9 @@ if [ "$ID" == "debian" ]; then
 		sleep 5
 
 		update_system
-		echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
-		sudo apt -y install apache2 mariadb-server
+        sudo apt -y install apache2 mariadb-server
         sudo mysql_secure_installation
-        sudo apt -y curl subversion php7.2 php7.2-gd php7.2-zip ibapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear php7.2-mbstring php-gettext git php-bcmath phpmyadmin
+        sudo apt -y install curl subversion php7.2 php7.2-gd php7.2-zip ibapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear php7.2-mbstring php-gettext git php-bcmath phpmyadmin
 
 	fi
 
@@ -87,9 +88,7 @@ if [ "$ID" == "debian" ]; then
 		sudo service apache2 restart
 
 	fi
-
-	sudo mysql_secure_installation
-
+	
 	install_debian_ubuntu
 
 fi
@@ -110,11 +109,10 @@ if [ "$ID" == "ubuntu" ]; then
 		sleep 5
 
 		update_system
-		echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
         sudo apt -y install apache2 mariadb-server
         sudo mysql_secure_installation
-        sudo apt -y curl subversion php7.2 php7.2-gd php7.2-zip ibapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear php7.2-mbstring php-gettext git php-bcmath phpmyadmin		
-		
+        sudo apt -y install curl subversion php7.2 php7.2-gd php7.2-zip ibapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear php7.2-mbstring php-gettext git php-bcmath phpmyadmin
+
 	fi
 
 	if [ $(echo "$VERSION_ID == 18.04"|bc -l) == 1 ]; then
@@ -123,11 +121,10 @@ if [ "$ID" == "ubuntu" ]; then
 		sleep 5
 
 		update_system
-		echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
         sudo apt -y install apache2 mariadb-server
         sudo mysql_secure_installation
-        sudo apt -y curl subversion php7.2 php7.2-gd php7.2-zip ibapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear php7.2-mbstring php-gettext git php-bcmath phpmyadmin		
-		
+        sudo apt -y install curl subversion php7.2 php7.2-gd php7.2-zip ibapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear php7.2-mbstring php-gettext git php-bcmath phpmyadmin
+
 	fi
 
 	if [ $(echo "$VERSION_ID == 16.04"|bc -l) == 1 ]; then
@@ -136,10 +133,9 @@ if [ "$ID" == "ubuntu" ]; then
 		sleep 5
 
 		update_system
-		echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
         sudo apt -y install apache2 mariadb-server
         sudo mysql_secure_installation
-        sudo apt -y curl subversion php7.2 php7.2-gd php7.2-zip ibapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear php7.2-mbstring php-gettext git php-bcmath phpmyadmin
+        sudo apt -y install curl subversion php7.2 php7.2-gd php7.2-zip ibapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear php7.2-mbstring php-gettext git php-bcmath phpmyadmin
 
 	fi
 
@@ -149,14 +145,15 @@ if [ "$ID" == "ubuntu" ]; then
 		sleep 5
 
 		update_system
-		echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
         sudo apt -y install apache2 mariadb-server
         sudo mysql_secure_installation
-        sudo apt -y curl subversion php7.2 php7.2-gd php7.2-zip ibapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear php7.2-mbstring php-gettext git php-bcmath phpmyadmin
+        sudo apt -y install curl subversion php7.2 php7.2-gd php7.2-zip ibapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear php7.2-mbstring php-gettext git php-bcmath phpmyadmin
 
 	fi
 
 	sed -i "s/^bind-address.*/bind-address=0.0.0.0/g" "/etc/mysql/mariadb.conf.d/50-server.cnf"
+
+	sudo mysql_secure_installation
 
 	install_debian_ubuntu
 	
@@ -174,7 +171,7 @@ if [ "$ID" == "centos" ]; then
 
 		echo "CentOS 8 Detected Updating & Installing Panel..."
 		sleep 5
-        echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
+
 		sudo yum -y update
 		sudo dnf install epel-release
 		sudo yum -y install epel-release wget subversion git
@@ -191,7 +188,6 @@ if [ "$ID" == "centos" ]; then
 		echo "CentOS 7 Detected Updating & Installing Panel..."
 		sleep 5
 		
-		echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
 		sudo yum -y install epel-release wget subversion git
 		sudo yum -y install mariadb-server
 		sudo service mariadb restart
@@ -205,7 +201,6 @@ if [ "$ID" == "centos" ]; then
 		echo "CentOS 6 Detected Updating & Installing Panel..."
 		sleep 5
 		
-		echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
 		sudo yum -y install epel-release wget subversion git
 		sudo yum -y install mysql-server
 		sudo service mysqld restart
