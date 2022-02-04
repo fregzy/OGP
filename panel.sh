@@ -17,9 +17,13 @@ update_system(){
     echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
     sudo apt -y update
     sudo apt -y upgrade
-    sudo dpkg --add-architecture i386
+	sudo dpkg --add-architecture i386
     sudo apt-get update
     sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
+    sudo apt -y install libreadline5
+    sudo apt -y install libncursesw5
+    sudo apt -y install lib32ncursesw5
+
 }
 
 install_debian_ubuntu(){
@@ -51,6 +55,9 @@ if [ "$ID" == "debian" ]; then
 	    sudo dpkg --add-architecture i386
         sudo apt-get update
         sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
+		sudo apt -y install libreadline5
+        sudo apt -y install libncursesw5
+        sudo apt -y install lib32ncursesw5		
 
 	fi
 
@@ -65,7 +72,10 @@ if [ "$ID" == "debian" ]; then
         sudo dpkg --add-architecture i386
         sudo apt-get update
         sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
-	
+		sudo apt -y install libreadline5
+		sudo apt -y install libncursesw5
+        sudo apt -y install lib32ncursesw5
+		
 	fi
 
 	if [ $(echo "$VERSION_ID == 8"|bc -l) == 1 ]; then
@@ -118,7 +128,10 @@ if [ "$ID" == "ubuntu" ]; then
         sudo dpkg --add-architecture i386
         sudo apt-get update
         sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
-
+		sudo apt -y install libreadline5
+        sudo apt -y install libncursesw5
+        sudo apt -y install lib32ncursesw5		
+		
 	fi
 
 	if [ $(echo "$VERSION_ID == 18.04"|bc -l) == 1 ]; then
@@ -132,6 +145,9 @@ if [ "$ID" == "ubuntu" ]; then
         sudo dpkg --add-architecture i386
         sudo apt-get update
         sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
+		sudo apt -y install libreadline5
+        sudo apt -y install libncursesw5
+        sudo apt -y install lib32ncursesw5		
 		
 	fi
 
@@ -146,6 +162,9 @@ if [ "$ID" == "ubuntu" ]; then
         sudo dpkg --add-architecture i386
         sudo apt-get update
         sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
+		sudo apt -y install libreadline5
+        sudo apt -y install libncursesw5
+        sudo apt -y install lib32ncursesw5
 
 	fi
 
@@ -160,6 +179,9 @@ if [ "$ID" == "ubuntu" ]; then
         sudo dpkg --add-architecture i386
         sudo apt-get update
         sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
+		sudo apt -y install libreadline5
+        sudo apt -y install libncursesw5
+        sudo apt -y install lib32ncursesw5
 
 	fi
 
