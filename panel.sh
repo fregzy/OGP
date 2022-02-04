@@ -68,7 +68,7 @@ if [ "$ID" == "debian" ]; then
 
 		update_system
 		echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
-		sudo apt-get -y install apache2 curl subversion php7.0 php7.0-gd php7.0-zip libapache2-mod-php7.0 php7.0-curl php7.0-mysql php7.0-xmlrpc php-pear phpmyadmin mysql-server php7.0-mbstring php-gettext git php-bcmath
+		sudo apt-get -y install apache2 curl subversion php7.0 php7.0-gd php7.0-zip libapache2-mod-php7.0 php7.0-curl php7.0-mysql php7.0-xmlrpc php-pear phpmyadmin mariadb-server php7.0-mbstring php-gettext git php-bcmath
         sudo dpkg --add-architecture i386
         sudo apt-get update
         sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
@@ -124,7 +124,7 @@ if [ "$ID" == "ubuntu" ]; then
 
 		update_system
 		echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
-		sudo apt-get -y install apache2 curl subversion php7.4 php7.4-gd php7.4-zip libapache2-mod-php7.4 php7.4-curl php7.4-mysql php7.4-xmlrpc php-pear phpmyadmin mariadb-server-10.3 php7.4-mbstring git php-bcmath
+		sudo apt-get -y install apache2 curl subversion php7.4 php7.4-gd php7.4-zip libapache2-mod-php7.4 php7.4-curl php7.4-mysql php7.4-xmlrpc php-pear phpmyadmin mariadb-server php7.4-mbstring git php-bcmath
         sudo dpkg --add-architecture i386
         sudo apt-get update
         sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
@@ -141,7 +141,7 @@ if [ "$ID" == "ubuntu" ]; then
 
 		update_system
 		echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
-		sudo apt-get -y install apache2 curl subversion php7.2 php7.2-gd php7.2-zip libapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear phpmyadmin mysql-server php7.2-mbstring php-gettext git php-bcmath
+		sudo apt-get -y install apache2 curl subversion php7.2 php7.2-gd php7.2-zip libapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear phpmyadmin mariadb-server php7.2-mbstring php-gettext git php-bcmath
         sudo dpkg --add-architecture i386
         sudo apt-get update
         sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
@@ -158,7 +158,7 @@ if [ "$ID" == "ubuntu" ]; then
 
 		update_system
 		echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
-		sudo apt-get -y install apache2 curl subversion php7.0 php7.0-gd php7.0-zip libapache2-mod-php7.0 php7.0-curl php7.0-mysql php7.0-xmlrpc php-pear phpmyadmin mysql-server php7.0-mbstring php-gettext git php-bcmath
+		sudo apt-get -y install apache2 curl subversion php7.0 php7.0-gd php7.0-zip libapache2-mod-php7.0 php7.0-curl php7.0-mysql php7.0-xmlrpc php-pear phpmyadmin mariadb-server php7.0-mbstring php-gettext git php-bcmath
         sudo dpkg --add-architecture i386
         sudo apt-get update
         sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
@@ -175,7 +175,7 @@ if [ "$ID" == "ubuntu" ]; then
 
 		update_system
 		echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
-		sudo apt-get -y install apache2 curl subversion php5 php5-gd php5-xmlrpc php5-curl php5-mysql php-pear phpmyadmin mysql-server libapache2-mod-php5 git
+		sudo apt-get -y install apache2 curl subversion php5 php5-gd php5-xmlrpc php5-curl php5-mysql php-pear phpmyadmin mariadb-server libapache2-mod-php5 git
         sudo dpkg --add-architecture i386
         sudo apt-get update
         sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
