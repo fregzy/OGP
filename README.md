@@ -26,5 +26,5 @@ Script supports auto install agent or panel for any os supported
 	
     sudo apt update && apt -y upgrade && apt -y install curl && curl -O https://raw.githubusercontent.com/fregzy/OGP/master/panel.sh && chmod 777 panel.sh && ./agent.sh
 
-### OpenGamePanel GitHub
-https://github.com/OpenGamePanel
+### VPS Hosting
+https://www.host1fire.com/
