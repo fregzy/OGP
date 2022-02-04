@@ -17,7 +17,7 @@ update_system(){
     echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
     sudo apt -y update
     sudo apt -y upgrade
-	sudo dpkg --add-architecture i386
+    sudo dpkg --add-architecture i386
     sudo apt-get update
     sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
 }
