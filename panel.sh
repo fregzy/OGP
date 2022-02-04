@@ -17,6 +17,9 @@ update_system(){
     echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
     sudo apt -y update
     sudo apt -y upgrade
+	sudo dpkg --add-architecture i386
+    sudo apt-get update
+    sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
 }
 
 install_debian_ubuntu(){
@@ -28,7 +31,7 @@ install_debian_ubuntu(){
 }
 
 if [ "$ID" == "debian" ]; then
-
+    echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
 	apt install bc -y
 
 	if [ $(echo "$VERSION_ID == 10 || $VERSION_ID == 9 || $VERSION_ID == 8" | bc -l) != 1 ]; then
@@ -42,8 +45,12 @@ if [ "$ID" == "debian" ]; then
 		sleep 5
 
 		update_system
+		echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
 		sudo apt-get -y install apache2 curl subversion php7.3 php7.3-gd php7.3-zip libapache2-mod-php7.3 php7.3-curl php7.3-mysql php7.3-xmlrpc php-pear mariadb-server php7.3-mbstring php-gettext git php-bcmath
 		sudo apt-get -y install phpmyadmin
+	    sudo dpkg --add-architecture i386
+        sudo apt-get update
+        sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
 
 	fi
 
@@ -53,8 +60,12 @@ if [ "$ID" == "debian" ]; then
 		sleep 5
 
 		update_system
+		echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
 		sudo apt-get -y install apache2 curl subversion php7.0 php7.0-gd php7.0-zip libapache2-mod-php7.0 php7.0-curl php7.0-mysql php7.0-xmlrpc php-pear phpmyadmin mysql-server php7.0-mbstring php-gettext git php-bcmath
-
+        sudo dpkg --add-architecture i386
+        sudo apt-get update
+        sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
+	
 	fi
 
 	if [ $(echo "$VERSION_ID == 8"|bc -l) == 1 ]; then
@@ -63,6 +74,7 @@ if [ "$ID" == "debian" ]; then
 		sleep 5
 
 		update_system
+		echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
 		sudo apt-get -y install apache2 curl subversion php5 php5-gd php5-xmlrpc php5-curl php5-mysql php-pear phpmyadmin mysql-server libapache2-mod-php5 git
 
 	fi
@@ -103,6 +115,9 @@ if [ "$ID" == "ubuntu" ]; then
 		update_system
 		echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
 		sudo apt-get -y install apache2 curl subversion php7.4 php7.4-gd php7.4-zip libapache2-mod-php7.4 php7.4-curl php7.4-mysql php7.4-xmlrpc php-pear phpmyadmin mariadb-server-10.3 php7.4-mbstring git php-bcmath
+        sudo dpkg --add-architecture i386
+        sudo apt-get update
+        sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
 
 	fi
 
@@ -114,7 +129,10 @@ if [ "$ID" == "ubuntu" ]; then
 		update_system
 		echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
 		sudo apt-get -y install apache2 curl subversion php7.2 php7.2-gd php7.2-zip libapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear phpmyadmin mysql-server php7.2-mbstring php-gettext git php-bcmath
-
+        sudo dpkg --add-architecture i386
+        sudo apt-get update
+        sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
+		
 	fi
 
 	if [ $(echo "$VERSION_ID == 16.04"|bc -l) == 1 ]; then
@@ -125,6 +143,9 @@ if [ "$ID" == "ubuntu" ]; then
 		update_system
 		echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
 		sudo apt-get -y install apache2 curl subversion php7.0 php7.0-gd php7.0-zip libapache2-mod-php7.0 php7.0-curl php7.0-mysql php7.0-xmlrpc php-pear phpmyadmin mysql-server php7.0-mbstring php-gettext git php-bcmath
+        sudo dpkg --add-architecture i386
+        sudo apt-get update
+        sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
 
 	fi
 
@@ -136,6 +157,9 @@ if [ "$ID" == "ubuntu" ]; then
 		update_system
 		echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
 		sudo apt-get -y install apache2 curl subversion php5 php5-gd php5-xmlrpc php5-curl php5-mysql php-pear phpmyadmin mysql-server libapache2-mod-php5 git
+        sudo dpkg --add-architecture i386
+        sudo apt-get update
+        sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
 
 	fi
 
